@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blocco 5 - Eventi e Interattività nel DOM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #333;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+
+    .box-hover {
+      padding: 20px;
+      text-align: center;
+      background-color: #e0f7fa;
+      border: 2px dashed #00bcd4;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .box-hover.attivo {
+      background-color: #b2ebf2;
+      border-color: #00838f;
+    }
+
+    .errore-testo {
+      color: #d32f2f;
+      font-size: 14px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .contatore-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    button:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Blocco 5: Eventi e Interattività</h1>
+  <p>Apri le <strong>DevTools (F12) &rarr; Console</strong> e interagisci con la pagina per osservare gli eventi scatenati.</p>
+
+  <hr>
+
+  <!-- 1. Eventi del Mouse e Contatore -->
+  <section class="box">
+    <h2>1. Eventi del Mouse (Click, MouseEnter, MouseLeave)</h2>
+    
+    <div class="contatore-box">
+      <button id="btn-decrementa">-</button>
+      <span id="valore-contatore" style="font-size: 20px; font-weight: bold;">0</span>
+      <button id="btn-incrementa">+</button>
+    </div>
+
+    <br>
+    <div id="area-hover" class="box-hover">
+      Passa il mouse sopra questa zona oppure cliccala!
+    </div>
+  </section>
+
+  <!-- 2. Eventi da Tastiera e Input in Tempo Reale -->
+  <section class="box">
+    <h2>2. Tastiera e Input in tempo reale (<code>input</code>, <code>keydown</code>)</h2>
+    
+    <div>
+      <label for="campo-testo">Scrivi qualcosa:</label>
+      <input type="text" id="campo-testo" placeholder="Digita qui...">
+    </div>
+    <p>Anteprima live: <strong id="anteprima-testo">---</strong></p>
+    <p>Ultimo tasto premuto: <code id="tasto-premuto">Nessuno</code></p>
+  </section>
+
+  <!-- 3. Eventi dei Form e Validation -->
+  <section class="box">
+    <h2>3. Gestione dei Form (<code>submit</code> e <code>preventDefault</code>)</h2>
+    
+    <form id="form-registrazione">
+      <div>
+        <label for="email-input">Email:</label>
+        <input type="email" id="email-input" required placeholder="inserisci@email.com">
+      </div>
+      <br>
+      <div>
+        <label for="eta-input">Età:</label>
+        <input type="number" id="eta-input" placeholder="Es. 20">
+        <div id="messaggio-errore" class="errore-testo">Devi essere maggiorenne per registrarti!</div>
+      </div>
+      <br>
+      <button type="submit" id="btn-invia">Invia Modulo</button>
+    </form>
+    
+    <p id="esito-form" style="color: #2e7d32; font-weight: bold;"></p>
+  </section>
+
+  <!-- Collegamento allo script del Blocco 5 -->
+  <script src="05-eventi-interattivita.js"></script>
+</body>
+</html>

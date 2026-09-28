@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>primo prova js</title>
+    <script src="js/variabili.js"></script>
+    <script src="js/eserciziGio03sett36.js"></script>
+
+</head>
+
+<body>
+
+    <title>Indovina numero 0-6</title>
+    <h1>Gioco: indovina il numero (0-10)</h1>
+
+    <script>
+
+        // il computer pensa a un numero tra 0 e 6
+        let segreto = 7;
+        let tentativo = -1; // valore iniziale
+
+        // ciclo senza funzioni e senza metodi
+        while (tentativo !== segreto) {
+            let input = prompt("Indovina il numero (0-10):");
+
+            if (input === null) {
+                alert("Hai annullato il gioco.");
+                break;
+            }
+            tentativo = +input; //assegnamento in modo che non perda il valore inserito
+
+            if (segreto !==  tentativo) {
+                alert("Hai sbagliato, riprova.");
+                continue;
+            }
+            if (tentativo ===  segreto) {
+                alert("Hai indovinato! Il numero era " + segreto);
+            } else {
+                alert("Sbagliato, riprova.");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

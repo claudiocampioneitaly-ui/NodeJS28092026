@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocco 2 - Contenuto e Attributi DOM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #333;
+      }
+
+      .box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .prodotto-card {
+        border-left: 4px solid #0275d8;
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Blocco 2: Modifica del Contenuto e degli Attributi</h1>
+    <p>Apri la <strong>Console dei Developer Tools (F12)</strong> per osservare le modifiche passo passo.</p>
+
+    <hr>
+
+    <!-- 1. Manipolazione del Testo e HTML -->
+    <section class="box">
+      <h2>1. Differenza tra textContent, innerText e innerHTML</h2>
+
+      <div id="demo-testo">
+        Questo è un testo normale con un <span class="hidden">testo nascosto via CSS</span> e un tag
+        <strong>bold</strong>.
+      </div>
+
+      <h4>Destinazioni per la modifica:</h4>
+      <p><strong>Con textContent:</strong> <span id="out-text-content">---</span></p>
+      <p><strong>Con innerText:</strong> <span id="out-inner-text">---</span></p>
+      <p><strong>Con innerHTML:</strong> <span id="out-inner-html">---</span></p>
+    </section>
+
+    <!-- 2. Gestione Attributi Standard -->
+    <section class="box">
+      <h2>2. Attributi HTML Standard</h2>
+      <a id="mio-link" href="https://example.com" target="_self" title="Link di prova">Visita il sito web</a>
+      <br><br>
+      <img id="mia-immagine" src="https://via.placeholder.com/150" alt="Placeholder Iniziale" width="150">
+    </section>
+
+    <!-- 3. Attributi Personalizzati (data-attributes / dataset) -->
+    <section class="box">
+      <h2>3. Attributi Custom <code>data-*</code> (dataset)</h2>
+      <div id="prodotto-101" class="prodotto-card" data-id="101" data-categoria="elettronica"
+        data-prezzo-in-euro="299.99" data-disponibile="true">
+        <h3 id="nome-prodotto">Prodotto Caricato via Dataset...</h3>
+        <p id="info-prodotto">Dettagli in arrivo dal JS...</p>
+      </div>
+    </section>
+
+    <!-- 4. Proprietà dei Form e Input -->
+    <section class="box">
+      <h2>4. Proprietà dei Campi di Form</h2>
+      <form id="form-esempio">
+        <div>
+          <label for="campo-nome">Nome Utente:</label>
+          <input type="text" id="campo-nome" value="Mario Rossi">
+        </div>
+        <br>
+        <div>
+          <label>
+            <input type="checkbox" id="chk-accetto"> Accetto i termini e condizioni
+          </label>
+        </div>
+        <br>
+        <button type="button" id="btn-invia" disabled>Invia Dati</button>
+      </form>
+    </section>
+
+
+    <script src="02-contenuto-attributi.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigazione DOM ed Event Delegation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #333;
+      }
+
+      .box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      /* Struttura nidificata per testare la navigazione */
+      .nonno {
+        background-color: #e3f2fd;
+        border: 2px solid #2196f3;
+        padding: 15px;
+        border-radius: 5px;
+      }
+
+      .genitore {
+        background-color: #fff;
+        border: 2px solid #90caf9;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      .figlio {
+        background-color: #ffe0b2;
+        border: 1px dashed #fb8c00;
+        padding: 8px;
+        margin: 5px 0;
+      }
+
+      /* Stili per la Lista Dinamica con Event Delegation */
+      .lista-task {
+        list-style: none;
+        padding: 0;
+      }
+
+      .lista-task li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 10px;
+        margin-bottom: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .lista-task li.completato span {
+        text-decoration: line-through;
+        color: #888;
+      }
+
+      .btn-elimina {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .btn-completa {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-right: 5px;
+      }
+
+      .form-aggiungi {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .form-aggiungi input {
+        flex: 1;
+        padding: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Navigazione nel DOM ed Event Delegation</h1>
+    <p>Apri le <strong>DevTools (F12) &rarr; Console</strong> per osservare la navigazione tra nodi.</p>
+
+    <hr>
+
+    <!-- 1. Navigazione tra parent, children e siblings -->
+    <section class="box">
+      <h2>1. Navigazione Relativa (Genitori, Figli, Fratelli)</h2>
+
+      <div id="struttura-nonno" class="nonno">
+        <h3>Contenitore Nonno</h3>
+
+        <div id="struttura-genitore" class="genitore">
+          <h4>Contenitore Genitore</h4>
+
+          <div id="figlio-1" class="figlio">Primo Figlio (ID: figlio-1)</div>
+          <div id="figlio-target" class="figlio">Figlio Centrale (ID: figlio-target)</div>
+          <div id="figlio-3" class="figlio">Terzo Figlio (ID: figlio-3)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Risalita con closest() ed Event Delegation -->
+    <section class="box">
+      <h2>2. Event Delegation e Metodo <code>closest()</code></h2>
+      <p>Aggiungi nuove task. I pulsanti funzioneranno anche per i nuovi elementi grazie ad un <strong>unico event
+          listener sul genitore <code>&lt;ul&gt;</code></strong>!</p>
+
+      <div class="form-aggiungi">
+        <input type="text" id="nuova-task-input" placeholder="Nuova attività...">
+        <button id="btn-aggiungi-task">Aggiungi Task</button>
+      </div>
+
+      <ul id="lista-task" class="lista-task">
+        <li>
+          <span>Comprare il pane</span>
+          <div>
+            <button class="btn-completa">Fatto</button>
+            <button class="btn-elimina">Elimina</button>
+          </div>
+        </li>
+        <li>
+          <span>Studiare JavaScript DOM</span>
+          <div>
+            <button class="btn-completa">Fatto</button>
+            <button class="btn-elimina">Elimina</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Collegamento allo script del Blocco 6 -->
+    <script src="06-dom-traversal.js"></script>
+  </body>
+
+</html>

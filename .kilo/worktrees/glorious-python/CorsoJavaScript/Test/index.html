@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Grid — Demo Completa</title>
+
+</head>
+
+<body>
+
+<!-- test da Claudio branch 1-->
+ 
+
+<ul id="lista">
+  <li id="step-2">Passo 2</li>
+  <li id="step-3">Passo 3</li>
+</ul>
+
+<button id="btn-before">Inserisci PRIMA del Passo 2</button>
+<button id="btn-html">Inserisci HTML in fondo</button>
+
+<style>
+  ul { font-size: 20px; }
+  li { margin: 5px 0; }
+  .nuovo { color: blue; font-weight: bold; }
+</style>
+
+
+
+
+<script>
+// [AI-Copilot_Microsoft]
+
+const lista = document.getElementById("lista");
+const step2 = document.getElementById("step-2");
+
+// 🔹 Bottone 1 → insertBefore()
+document.getElementById("btn-before").addEventListener("click", () => {
+  const nuovo = document.createElement("li");
+  nuovo.textContent = "Passo 1 (insertBefore)";
+  nuovo.classList.add("nuovo");
+
+  lista.insertBefore(nuovo, step2);
+});
+
+// 🔹 Bottone 2 → insertAdjacentHTML()
+document.getElementById("btn-html").addEventListener("click", () => {
+  lista.insertAdjacentHTML(
+    "beforeend",
+    '<li class="nuovo">Passo 4 (insertAdjacentHTML)</li>'
+  );
+});
+</script>
+
+
+
+</body>
+</html>

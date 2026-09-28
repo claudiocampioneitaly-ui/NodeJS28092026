@@ -1,0 +1,62 @@
+{
+  "Console Log": {
+    "prefix": "cl",
+    "body": [
+      "console.log($1);"
+    ],
+    "description": "Prints to console with cursor position"
+  },
+  "Console Log for string": {
+    "prefix": "cls",
+    "body": [
+      "console.log('$1');"
+    ],
+    "description": "Prints to console with cursor position"
+  }
+  ,
+  "Ciclo for senza array": {
+    "prefix": "for",
+    "body": [
+      "for (let ${1:i} = ${2:0}; ${1:i} < ${3:10}; ${1:i}${4:++}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "For loop with customizable index variable and initial value"
+  },
+  
+    "Template Literal":{
+    "prefix": "tl",
+    "body": [
+      "$0"
+    ],
+    "description": "Insert JavaScript template literal with cursor positioned inside"
+  },
+  "Template Literal Variable": {
+    "prefix": "tlv",
+    "body": [
+      "${$0}"
+    ],
+    "description": "Insert JavaScript template literal variable placeholder with cursor positioned inside the curly braces"
+  },
+  "Template Literal con variabile": {
+  "prefix": "tl+v",
+  "body": [
+    "${1:testo} \\${${2:variabile}}"
+  ],
+  "description": "Insert JavaScript template literal with variable inside"
+},
+  "Operatore Ternario": {
+    "prefix": "tern",
+    "body": [
+      "${1:condizione} ? ${2:valore_se_vero} : ${3:valore_se_falso}"
+    ],
+    "description": "Crea un operatore ternario con tab stops per condizione, valore vero e valore falso"
+  },
+  "Arrow symbol":{
+    "prefix": "ar",
+    "body": [
+      "=>"
+    ],
+    "description": "Insert JavaScript arrow symbol"
+  }
+}

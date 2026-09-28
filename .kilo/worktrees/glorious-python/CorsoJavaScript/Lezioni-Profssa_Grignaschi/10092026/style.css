@@ -1,0 +1,779 @@
+/* ============================================
+   BOOKSHELF - Fase 1: HTML & CSS
+   ============================================ */
+
+/* --- Reset & variabili --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* aggiunto solo per fare una prova nel file provaDom.js */
+.prova {
+  background-color: yellowgreen;
+}
+
+body {
+  font-family: var(--font-corpo);
+  background-color: var(--colore-sfondo);
+  color: var(--colore-testo);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Header --- */
+header {
+  background-color: var(--colore-primario);
+  color: var(--colore-sfondo);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-icona {
+  width: 2rem;
+  height: 2rem;
+  filter: invert(1);
+}
+
+.icona-titolo {
+  width: 1.3rem;
+  height: 1.3rem;
+  vertical-align: middle;
+  opacity: 0.7;
+}
+
+.icona-btn {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+  filter: invert(1);
+  margin-right: 0.2rem;
+}
+
+.icona-footer {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+  filter: invert(1);
+  opacity: 0.8;
+  margin-right: 0.3rem;
+}
+
+.libro-copertina-placeholder img {
+  width: 40%;
+  height: 40%;
+  filter: invert(1);
+  opacity: 0.5;
+}
+
+.logo-testo {
+  font-family: var(--font-titolo);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--colore-accento);
+  letter-spacing: 0.02em;
+}
+
+.logo-sottotitolo {
+  font-size: 0.7rem;
+  color: rgba(253, 246, 227, 0.6);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-top: -4px;
+}
+
+/* --- Navigazione --- */
+nav {
+  background-color: var(--colore-secondario);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+nav a {
+  color: var(--colore-sfondo);
+  text-decoration: none;
+  padding: 0.9rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+  transition:
+    border-color var(--transizione),
+    background-color var(--transizione);
+  display: inline-block;
+}
+
+nav a:hover,
+nav a.attivo {
+  border-bottom-color: var(--colore-accento);
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+nav a.disabilitato {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --- Main --- */
+main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+/* --- Hero section --- */
+.hero {
+  background: linear-gradient(135deg, var(--colore-primario) 0%, var(--colore-secondario) 100%);
+  color: var(--colore-sfondo);
+  border-radius: var(--raggio);
+  padding: 3rem 2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 168, 83, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-family: var(--font-titolo);
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--colore-accento);
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* --- Barra di ricerca (placeholder visivo in Fase 1) --- */
+.ricerca-container {
+  margin-bottom: 2.5rem;
+}
+
+.ricerca-box {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.ricerca-box input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--colore-bordo);
+  border-radius: var(--raggio);
+  font-size: 1rem;
+  font-family: var(--font-corpo);
+  background: var(--colore-sfondo-carta);
+  color: var(--colore-testo);
+  transition: border-color var(--transizione);
+}
+
+.ricerca-box input:focus {
+  outline: none;
+  border-color: var(--colore-secondario);
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--raggio);
+  font-size: 1rem;
+  font-family: var(--font-corpo);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color var(--transizione),
+    transform var(--transizione);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primario {
+  background-color: var(--colore-secondario);
+  color: var(--colore-sfondo);
+}
+
+.btn-primario:hover {
+  background-color: var(--colore-primario);
+}
+
+.btn-secondario {
+  background-color: transparent;
+  color: var(--colore-secondario);
+  border: 2px solid var(--colore-secondario);
+}
+
+.btn-secondario:hover {
+  background-color: var(--colore-secondario);
+  color: var(--colore-sfondo);
+}
+
+/* --- Titolo sezione --- */
+.sezione-titolo {
+  font-family: var(--font-titolo);
+  font-size: 1.6rem;
+  color: var(--colore-primario);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--colore-bordo);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- Griglia libri --- */
+.libri-griglia {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.libri-griglia > * {
+  flex: 1 1 200px;
+  max-width: 260px;
+}
+
+/* --- Card libro --- */
+.libro-card {
+  background: var(--colore-sfondo-carta);
+  border-radius: var(--raggio);
+  box-shadow: var(--ombra-carta);
+  overflow: hidden;
+  transition:
+    transform var(--transizione),
+    box-shadow var(--transizione);
+  display: flex;
+  flex-direction: column;
+}
+
+.libro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ombra-hover);
+}
+
+.libro-copertina {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+  background-color: var(--colore-bordo);
+}
+
+.libro-copertina-placeholder {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: linear-gradient(135deg, var(--colore-primario), var(--colore-secondario));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.libro-info {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.libro-titolo {
+  font-family: var(--font-titolo);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--colore-primario);
+  line-height: 1.3;
+}
+
+.libro-autore {
+  font-size: 0.85rem;
+  color: var(--colore-testo-chiaro);
+}
+
+.libro-anno {
+  font-size: 0.8rem;
+  color: var(--colore-testo-chiaro);
+}
+
+.libro-stato {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.stato-da-leggere {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.stato-in-lettura {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.stato-letto {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.libro-azioni {
+  padding: 0 1rem 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-piccolo {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+}
+
+/* --- Statistiche --- */
+.statistiche {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  flex: 1 1 150px;
+  background: var(--colore-sfondo-carta);
+  border-radius: var(--raggio);
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: var(--ombra-carta);
+  border-top: 3px solid var(--colore-accento);
+}
+
+.stat-numero {
+  font-family: var(--font-titolo);
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--colore-primario);
+}
+
+.stat-etichetta {
+  font-size: 0.85rem;
+  color: var(--colore-testo-chiaro);
+  margin-top: 0.25rem;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--colore-primario);
+  color: rgba(253, 246, 227, 0.7);
+  padding: 2rem;
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-sezione {
+  flex: 1 1 200px;
+}
+
+.footer-sezione h3 {
+  font-family: var(--font-titolo);
+  color: var(--colore-accento);
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.footer-sezione ul {
+  list-style: none;
+}
+
+.footer-sezione ul li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-sezione a {
+  color: rgba(253, 246, 227, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transizione);
+}
+
+.footer-sezione a:hover {
+  color: var(--colore-accento);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(253, 246, 227, 0.15);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* --- Responsive --- */
+/* --- Hamburger menu --- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--colore-sfondo);
+  transition:
+    transform var(--transizione),
+    opacity var(--transizione);
+}
+
+.hamburger.aperto span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.aperto span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.aperto span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 0;
+    gap: 0.5rem;
+  }
+
+  .logo-sottotitolo {
+    display: none;
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1rem;
+  }
+
+  nav a {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .libri-griglia > * {
+    flex: 1 1 160px;
+  }
+
+  .statistiche > .stat-card {
+    flex: 1 1 calc(50% - 0.5rem);
+    max-width: calc(50% - 0.5rem);
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ricerca-box {
+    flex-direction: column;
+  }
+
+  .libri-griglia > * {
+    flex: 1 1 calc(50% - 0.75rem);
+    max-width: calc(50% - 0.75rem);
+  }
+
+  /* Hamburger visibile, nav nascosto di default */
+  .hamburger {
+    display: flex;
+  }
+
+  nav {
+    position: relative;
+  }
+
+  .nav-inner {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    background-color: var(--colore-secondario);
+  }
+
+  .nav-inner.aperto {
+    display: flex;
+  }
+
+  nav a,
+  nav span.disabilitato {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: none;
+  }
+}
+
+/* Scroll orizzontale su mobile */
+.libri-griglia {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem; /* spazio per la scrollbar */
+}
+
+.libri-griglia > * {
+  flex: 0 0 160px; /* larghezza fissa, non si restringono */
+  max-width: 160px;
+}
+
+.libro-azioni {
+  flex-direction: column;
+}
+
+.libro-azioni .btn,
+.libro-azioni .select-stato {
+  width: 100%;
+}
+
+/* ============================================
+   Utilità: visibilità
+   Sostituisce i display:none/block inline in JS
+   ============================================ */
+.nascosto {
+  display: none !important;
+}
+
+/* ============================================
+   Notifica temporanea
+   L'animazione è gestita qui, non in JS
+   ============================================ */
+.notifica {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--colore-secondario);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--raggio);
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.notifica--visibile {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   Stati della griglia (loading, errore, vuota)
+   Sostituisce gli stili inline in mostraLoading /
+   mostraErrore / mostraRisultati
+   ============================================ */
+.stato-griglia {
+  width: 100%;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--colore-testo-chiaro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stato-griglia--errore {
+  color: #dc2626;
+}
+
+.stato-griglia-icona {
+  width: 2.5rem;
+  height: 2.5rem;
+  opacity: 0.4;
+}
+
+.stato-griglia-icona--loading {
+  opacity: 0.5;
+}
+
+.stato-griglia--errore .stato-griglia-icona {
+  opacity: 1;
+  filter: invert(27%) sepia(90%) saturate(700%) hue-rotate(340deg);
+}
+
+/* ============================================
+   Animazione uscita card (rimozione libro)
+   Sostituisce le proprietà stile inline in JS
+   ============================================ */
+@keyframes cardEsci {
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+.card-in-uscita {
+  animation: cardEsci 0.3s ease forwards;
+}
+
+/* ============================================
+   Select stato (card libreria)
+   ============================================ */
+.select-stato {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--colore-bordo);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: var(--font-corpo);
+  background: white;
+  color: var(--colore-testo);
+  cursor: pointer;
+}
+
+/* ============================================
+   Barra filtri libreria
+   ============================================ */
+.filtri {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   Messaggio libreria vuota
+   ============================================ */
+.msg-vuota {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--colore-testo-chiaro);
+}
+
+.msg-vuota-icona {
+  width: 4rem;
+  height: 4rem;
+  opacity: 0.3;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.msg-vuota a {
+  color: var(--colore-secondario);
+  font-weight: 600;
+}
+
+/* ============================================
+   Testo descrittivo footer
+   ============================================ */
+.footer-descrizione {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+:root {
+  --colore-primario: #1a1a2e;
+  --colore-secondario: #e8621a;
+  --colore-accento: #f5a623;
+  --colore-sfondo: #fdf8f2;
+  --colore-sfondo-carta: #ffffff;
+  --colore-testo: #2d2d2d;
+  --colore-testo-chiaro: #7a7a7a;
+  --colore-bordo: #f0e6d3;
+  --font-titolo: Georgia, 'Times New Roman', serif;
+  --font-corpo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --ombra-carta: 0 2px 8px rgba(44, 24, 16, 0.12);
+  --ombra-hover: 0 6px 20px rgba(44, 24, 16, 0.2);
+  --raggio: 8px;
+  --transizione: 0.3s ease;
+}
+
+/* aggiunta per gestire gli errori del form */
+.error {
+  color: red;
+}

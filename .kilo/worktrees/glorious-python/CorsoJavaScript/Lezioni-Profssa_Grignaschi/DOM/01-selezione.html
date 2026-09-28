@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocco 1 - Panoramica Completa Metodi di Selezione DOM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #333;
+      }
+
+      .box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-size: 12px;
+        font-weight: bold;
+        color: white;
+        margin-left: 5px;
+      }
+
+      .badge-id {
+        background-color: #dc3545;
+      }
+
+      .badge-class {
+        background-color: #0d6efd;
+      }
+
+      .badge-tag {
+        background-color: #198754;
+      }
+
+      .badge-name {
+        background-color: #fd7e14;
+      }
+
+      .badge-query {
+        background-color: #6f42c1;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Blocco 1: Tutti i Metodi di Selezione del DOM</h1>
+    <p>Apri le <strong>DevTools (F12) &rarr; Console</strong> per vedere l'output e il tipo di dato restituito da
+      ciascun metodo.</p>
+
+    <hr>
+
+    <!-- 1. ID unico -->
+    <header id="intestazione-principale" class="box">
+      <h2>1. Intestazione con ID <code>#intestazione-principale</code></h2>
+    </header>
+
+    <!-- 2. Classi multiple -->
+    <section class="box">
+      <h3>2. Elementi con Classe <code>.articolo-testo</code></h3>
+      <p class="articolo-testo">Primo paragrafo informativo con classe articolo-testo.</p>
+      <p class="articolo-testo">Secondo paragrafo informativo con classe articolo-testo.</p>
+    </section>
+
+    <!-- 3. Form e attributo "name" -->
+    <section class="box">
+      <h3>3. Campo di input con attributo <code>name="username"</code></h3>
+      <form id="form-login">
+        <label for="username">Utente:</label>
+        <input type="text" id="username" name="username" value="MarioRossi89">
+      </form>
+    </section>
+
+    <!-- 4. Tag HTML generici -->
+    <section class="box">
+      <h3>4. Tag HTML <code>&lt;li&gt;</code> (Lista Spesa)</h3>
+      <ul id="lista-spesa">
+        <li class="item-spesa">Mele</li>
+        <li class="item-spesa evidenziato">Pane</li>
+        <li class="item-spesa">Latte</li>
+      </ul>
+    </section>
+
+
+    <script src="01-selezione.js"></script>
+  </body>
+
+</html>

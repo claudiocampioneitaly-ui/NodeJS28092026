@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creazione, Inserimento e Rimozione Elementi DOM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #333;
+      }
+
+      .box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+
+      .card-dinamica {
+        background-color: #e8f5e9;
+        border-left: 5px solid #2e7d32;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 3px;
+      }
+
+      .badge-nuovo {
+        background-color: #ff9800;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 12px;
+        margin-left: 5px;
+      }
+
+      .item-rimuovere {
+        color: #c62828;
+        font-weight: bold;
+      }
+
+      ul {
+        list-style-type: square;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Blocco 4: Creazione, Inserimento e Rimozione Elementi</h1>
+    <p>Apri le <strong>DevTools (F12) &rarr; Console</strong> per seguire le modifiche alla struttura HTML.</p>
+
+    <hr>
+
+    <!-- 1. Creazione e Inserimento Base -->
+    <section class="box">
+      <h2>1. Creazione e posizionamento con <code>append()</code> / <code>prepend()</code></h2>
+      <div id="contenitore-card">
+        <p id="paragrafo-esistente">Questo paragrafo è già presente nell'HTML originale.</p>
+      </div>
+      <!--qua vado ad inserire le card create tramite JavaScript
+      è come se ci fosse scritto in HTML:
+      <div class="card-dinamica" id="card-1">
+        <h3>Card Generata via JavaScript</h3>
+        <p>Questo elemento è stato creato interamente con document.createElement() e aggiunto al DOM.</p>
+      </div>    -->
+    </section>
+
+
+<div id="div1">
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+
+const element = document.getElementById("div1");
+const child = document.getElementById("p1");
+element.insertBefore(para, child);
+</script>
+
+
+
+
+
+    <!-- 2. Posizionamento avanzato: insertBefore e insertAdjacentHTML -->
+    <section class="box">
+      <h2>2. Inserimento con <code>insertBefore()</code> e <code>insertAdjacentHTML()</code></h2>
+      <ul id="lista-tutorial">
+        <li id="step-2">Passo 2: Configurare il progetto</li>
+        <li id="step-3">Passo 3: Scrivere il codice</li>
+      </ul>
+    </section>
+
+    <!-- 3. Rimozione e Sostituzione -->
+    <section class="box">
+      <h2>3. Rimozione (<code>remove()</code>) e Sostituzione (<code>replaceWith()</code>)</h2>
+      <div id="contenitore-rimozione">
+        <p id="elemento-da-eliminare" class="item-rimuovere">⚠️ Questo elemento sta per essere rimosso dal DOM!</p>
+        <p id="elemento-da-sostituire">🔄 Questo elemento verrà sostituito da una nuova card.</p>
+      </div>
+    </section>
+
+    <!-- Collegamento allo script del Blocco 4 -->
+    <script src="04-creazione-rimozione-elementi.js"></script>
+  </body>
+
+</html>

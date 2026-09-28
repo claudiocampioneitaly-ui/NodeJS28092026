@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Align-Content Demo Chiara</title>
+
+<style>
+  body {
+    font-family: Arial;
+    padding: 20px;
+    background: #f5f5f5;
+  }
+
+  h1 {
+    margin-bottom: 25px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .flex-demo {
+    display: flex;
+    flex-wrap: wrap;
+    height: 180px;
+    padding: 10px;
+    gap: 10px;
+    background: #eaeaea;
+  }
+
+  /* 3 righe con colori diversi */
+  .item:nth-child(1), .item:nth-child(2), .item:nth-child(3) {
+    background: #0077ff; /* riga 1 */
+  }
+  .item:nth-child(4), .item:nth-child(5), .item:nth-child(6) {
+    background: #00aa55; /* riga 2 */
+  }
+  .item:nth-child(7), .item:nth-child(8), .item:nth-child(9) {
+    background: #ff8800; /* riga 3 */
+  }
+
+  .item {
+    width: 60px;
+    height: 60px;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Align-Content: differenze REALI</h1>
+
+<div class="grid">
+
+  <div class="card">
+    <strong>center</strong>
+    <div class="flex-demo" style="align-content: center;">
+      <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+      <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+      <div class="item">7</div><div class="item">8</div><div class="item">9</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <strong>space-around</strong>
+    <div class="flex-demo" style="align-content: space-around;">
+      <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+      <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+      <div class="item">7</div><div class="item">8</div><div class="item">9</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <strong>space-evenly</strong>
+    <div class="flex-demo" style="align-content: space-evenly;">
+      <div class="item">1</div><div class="item">2</div><div class="item">3</div>
+      <div class="item">4</div><div class="item">5</div><div class="item">6</div>
+      <div class="item">7</div><div class="item">8</div><div class="item">9</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocco 3 - Stili CSS e Classi nel DOM</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #333;
+      }
+
+      .box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        transition: all 0.3s ease;
+      }
+
+      /* Classi CSS pronte per essere usate/attivate via JS */
+      .card-evidenziata {
+        background-color: #e3f2fd;
+        border-color: #2196f3;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .testo-pericolo {
+        color: #d32f2f;
+        font-weight: bold;
+      }
+
+      .modalita-scura {
+        background-color: #212121;
+        color: #ffffff;
+        border-color: #424242;
+      }
+
+      .nascosto {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <h1>Blocco 3: Modifica dello Stile CSS e delle Classi</h1>
+    <p>Apri le <strong>DevTools (F12) &rarr; Console</strong> per seguire le operazioni passo passo.</p>
+
+    <hr>
+
+    <!-- 1. Stili Inline Diretti -->
+    <section class="box">
+      <h2>1. Stili Inline tramite proprietà <code>element.style</code></h2>
+      <div id="box-inline" class="box">
+        Questo box verrà stilizzato direttamente tramite JavaScript usando la proprietà <code>style</code>.
+      </div>
+    </section>
+
+    <!-- 2. Gestione delle Classi CSS con classList -->
+    <section class="box">
+      <h2>2. Manipolazione Classi con <code>classList</code></h2>
+      <div id="card-demo" class="box">
+        <p id="testo-stato">Stato attuale: <span id="stato-label">Standard</span></p>
+        <p id="messaggio-avviso">Questo è un messaggio di avviso generico.</p>
+      </div>
+    </section>
+
+    <!-- 3. Toggle e Verifiche -->
+    <section class="box">
+      <h2>3. Interruttore (Toggle) e Verifica Stato (Contains)</h2>
+      <div id="box-toggle" class="box ">
+        Questo box simula l'attivazione/disattivazione di una modalità "Scura".
+      </div>
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+<div id="box">BOX</div>
+<button id="btn">Toggle colore</button>
+
+<style>
+  #box {
+    width: 150px;
+    height: 80px;
+    background: red;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .blu {
+    background: blue;
+  }
+</style>
+
+
+<script>
+
+const box = document.getElementById("box");
+const btn = document.getElementById("btn");
+
+btn.addEventListener("click", () => {
+
+  // Toggle della classe "blu"
+  const stato = box.classList.toggle("blu");
+
+  console.log("La classe 'blu' è attiva?", stato);
+});
+
+
+</script>
+
+
+
+    <script src="03-stili-classi.js"></script>
+  </body>
+
+</html>

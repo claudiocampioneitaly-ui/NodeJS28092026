@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookShelf - La tua libreria personale</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="MEDIA/in-lettura.svg" type="image/x-icon">
+  </head>
+
+  <body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header>
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <img src="MEDIA/libro.svg" alt="" class="logo-icona" />
+          <div>
+            <span class="logo-testo">BookShelf</span>
+            <span class="logo-sottotitolo">La tua libreria personale</span>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <!-- ==================== NAVIGAZIONE ==================== -->
+    <nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-inner" id="nav-inner">
+        <a href="index.html" class="attivo">Home</a>
+        <a href="#sezione-cerca">Cerca</a>
+        <a href="libreria.html">La mia libreria</a>
+        <a href="#" class="disabilitato">Chi siamo</a>
+      </div>
+    </nav>
+
+    <!-- ==================== MAIN ==================== -->
+    <main>
+
+      <!-- Hero -->
+      <section class="hero">
+        <h1>La tua libreria, sempre con te</h1>
+        <p>Tieni traccia dei libri che hai letto, stai leggendo e vuoi leggere.</p>
+      </section>
+
+      <!-- Statistiche -->
+      <section>
+        <h2 class="sezione-titolo">
+          <img src="MEDIA/statistiche.svg" alt="" class="icona-titolo" />
+          La mia libreria
+        </h2>
+        <div class="statistiche">
+
+          <div class="stat-card">
+            <div class="stat-numero" id="numero-libri-totali">0</div>
+            <div class="stat-etichetta">Libri totali</div>   
+            <button id="btn-totale" class="btn-primario">Aggiungi</button>
+button>           
+          </div>
+
+          <div class="stat-card"> 
+            <div class="stat-numero" id="numero-libri-letti">0</div>
+            <div class="stat-etichetta">Letti</div>
+            <button id="btn-aggiungi-letto" class="btn-primario">Aggiungi</button>
+            <button id="btn-rimuovi-letto" class="btn-primario">Rimuovi</button>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-numero" id="numero-libri-in-lettura">0</div>
+            <div class="stat-etichetta">In lettura</div>
+            <button id="btn-aggiungi-in-lettura" class="btn-primario">Aggiungi</button>
+            <button id="btn-rimuovi-in-lettura" class="btn-primario">Rimuovi</button>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-numero" id="numero-libri-da-leggere">0</div>
+            <div class="stat-etichetta">Da leggere</div>
+            <button id="btn-aggiungi-da-leggere" class="btn-primario">Aggiungi</button>
+            <button id="btn-rimuovi-da-leggere" class="btn-primario">Rimuovi</button>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Barra di ricerca -->
+      <section id="sezione-cerca">
+        <h2 class="sezione-titolo">
+          <img src="MEDIA/ricerca.svg" alt="" class="icona-titolo" />
+          Cerca un libro
+        </h2>
+        <div class="ricerca-container">
+          <!-- abbiamo trasformato in form solo per vedere in js e.preventDefault -->
+          <!-- <form class="ricerca-box" action="pippo.php" method="post"> -->
+          <input type="text" id="input-ricerca" placeholder="Cerca per titolo o autore..." />
+          <span class="error"></span>
+          <button class="btn btn-primario" id="btn-cerca">
+            <img src="MEDIA/ricerca.svg" alt="" class="icona-btn" />
+            Cerca
+          </button>
+          <!-- </form> -->
+        </div>
+      </section>
+
+      <!-- Risultati ricerca -->
+      <section id="sezione-risultati" class="nascosto">
+        <div class="risultati-header">
+          <h2 class="sezione-titolo" id="titolo-risultati">Risultati</h2>
+          <button class="btn btn-secondario btn-piccolo" id="btn-chiudi-risultati">
+            Chiudi risultati
+          </button>
+          <p id="esito"></p>
+        </div>
+        <div class="libri-griglia" id="griglia-risultati"></div>
+      </section>
+
+      <!-- Libri in lettura -->
+      <section id="sezione-in-lettura" class="nascosto">
+        <h2 class="sezione-titolo">
+          <img src="MEDIA/in-lettura.svg" alt="" class="icona-titolo" />
+          In lettura
+        </h2>
+        <div class="libri-griglia" id="griglia-in-lettura"></div>
+      </section>
+
+      <!-- Libri da leggere -->
+      <section id="sezione-da-leggere" class="nascosto">
+        <h2 class="sezione-titolo">
+          <img src="MEDIA/segnalibro.svg" alt="" class="icona-titolo" />
+          Da leggere
+        </h2>
+        <div class="libri-griglia" id="griglia-da-leggere"></div>
+      </section>
+
+      <!-- Libri letti -->
+      <section id="sezione-letti" class="nascosto">
+        <h2 class="sezione-titolo">
+          <img src="MEDIA/letto.svg" alt="" class="icona-titolo" />
+          Letti
+        </h2>
+        <div class="libri-griglia" id="griglia-letti"></div>
+      </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-sezione">
+          <h3>
+            <img src="MEDIA/libro.svg" alt="" class="icona-footer" />
+            BookShelf
+          </h3>
+          <p class="footer-descrizione">La tua libreria personale online.</p>
+        </div>
+        <div class="footer-sezione">
+          <h3>Navigazione</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#sezione-cerca">Cerca libri</a></li>
+            <li><a href="libreria.html">La mia libreria</a></li>
+            <li><a href="#">Chi siamo</a></li>
+          </ul>
+        </div>
+        <div class="footer-sezione">
+          <h3>Contatti</h3>
+          <ul>
+            <li><a href="mailto:info@bookshelf.it">info@bookshelf.it</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Termini di servizio</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 BookShelf. Progetto didattico.</p>
+      </div>
+    </footer>
+
+
+    <script src="05-eventi-interattivita.js"></script>
+
+    <script src="JS/ui.js"></script>
+    <script src="JS/libreria.js"></script>
+    <script src="JS/api.js"></script>
+    <script src="JS/main.js"></script>
+
+  </body>
+
+</html>
